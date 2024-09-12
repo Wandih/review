@@ -7,6 +7,8 @@ export default function Card({data: personagem}){
         <>
         
             {personagem.name}
+            <img src={personagem.image}/>
+
         
         </>
     )
