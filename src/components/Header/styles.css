@@ -1,0 +1,27 @@
+.cabecalho{
+    background-color: rgb(71, 1, 115);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.cabecalho ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cabecalho ul a {
+    color: white;
+    text-decoration: none;
+    width: 99%;
+    padding: 10px;
+}
+
+.cabecalho ul a:hover {
+    background-color: #38015a;
+}
+
