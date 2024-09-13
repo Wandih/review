@@ -2,11 +2,16 @@
 import { useEffect, useState } from 'react'
 import './styles.css'
 import Card from '../../components/Card'
+import Filter from '../../components/FIlter'
+import Pagination from '../../components/Pagination'
 
 
 
 export default function ApiRickAndMorty(){
     const [conteudo, setConteudo] = useState(<>Carregando...</>)
+    const [busca, setBusca] = useState('');
+    const [page, setPage] = useState('1');
+    const [totalPages, setTotalPages] = useState('1');
 
     async function getCharacters(){
         const reqOptions = {
@@ -15,41 +20,49 @@ export default function ApiRickAndMorty(){
         }
 
         const response = await fetch(
-            "https://rickandmortyapi.com/api/character", 
+        `https://rickandmortyapi.com/api/character?page=${page}${busca}`, 
             reqOptions
         )
 
         if(!response.ok){
-            throw new Error("Http Error")
+            throw new Error(`Http error! status: ${response.status}`)
         }
 
-        const apiResponse = await response.json()
+        const data = await response.json();
 
+        return { info: data.info, char: data.results}
 
-        return apiResponse
     }
 
-    async function buildCards(){
-        const consulta = await getCharacters()
+    async function listaPersonagens(){
         
-        return consulta.results.map(personagem => <Card data={personagem} />)
+        const {char: todosPersonagens, info} = await getCharacters()
+        setTotalPages(info.pages)
+
+        return todosPersonagens.map(personagem => <Card data={personagem} />)
 
     }
 
     useEffect(() => {
         async function getConteudo(){
-            setConteudo( await buildCards())
+            setConteudo( await listaPersonagens())
         }
         getConteudo()
-    }, [])
+    }, [page, busca])
 
     
     return(
-        <div className='list-api'>
+        <div>
+        <Filter busca={busca} setBusca={setBusca}/>
+        <div className='list-principal'>
             { conteudo }
         </div>
+        <Pagination 
+            page={page}
+            totalPages={totalPages}
+            onPageChange={setPage}  
+        />
 
-
-
+        </div>
     )
 }
