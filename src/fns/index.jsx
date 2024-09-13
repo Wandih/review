@@ -4,7 +4,7 @@ export function getGenero(genero){
             return 'Masculino'
         case 'Female':
             return 'Feminino'
-        case 'Unknown':
+        case 'unknown':
             return 'Desconhecido'
         case 'Genderless':
             return 'Sem gênero'
@@ -25,7 +25,7 @@ export function getEspecie(especie){
             return 'Doença'
         case 'Humanoid':
             return 'Humanoide'
-        case 'Unknown':
+        case 'unknown':
             return 'Desconhecido'
         case 'Mythological Creature':
             return 'Criatura Mitólogica'
@@ -40,7 +40,7 @@ export function getStatus(status){
             return 'Vivo'
         case 'Dead':
             return 'Morto'
-        case 'Unknown':
+        case 'unknown':
             return 'Desconhecido'
         default:
             return status

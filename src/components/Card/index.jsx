@@ -7,8 +7,9 @@ export default function Card({data: personagem}){
 
         
         <div className='char-card' key={personagem.id}>
+        <h2>{personagem.name}</h2>
         <img src={personagem.image} alt={personagem.name}/>
-            <h2>{personagem.name}</h2>
+            
 
 
             <div className='char-info'>
@@ -16,7 +17,7 @@ export default function Card({data: personagem}){
                 <span><b>Gênero: </b>{getGenero(personagem.gender)}</span>
             </div>
             
-            <div>
+            <div className='lista-ep'>
                 <div className='lista-secundaria'>
                     <b>Participações:</b>
                     {personagem.episode.map(

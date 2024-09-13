@@ -10,9 +10,9 @@
     border-radius: 20px;
     border: none;
     color: #FFF;
-    background-color:rgb(71, 1, 115);
+    background-color:greenyellow;
 }
 
 .pagination button:hover {
-    background-color: #38015a;
+    background-color: darkgreen;
 }

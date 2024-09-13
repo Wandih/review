@@ -25,10 +25,10 @@
 }
 
 .filtro span:hover {
-    background-color: #38015a;
+    background-color: greenyellow;
 }
 
 .filtro-ativo {
-    background-color: rgb(71, 1, 115);
+    background-color: greenyellow;
     color: #fff;
 }
